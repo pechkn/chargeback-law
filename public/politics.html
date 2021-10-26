@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" href="./img/icons/light-icon.ico" id="dark-theme-icon" />
+    <link rel="icon" href="./img/icons/dark-icon.ico" id="light-theme-icon" />
+    <style>
+      html {
+        line-height: 1.15;
+        -webkit-text-size-adjust: 100%;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      main {
+        display: block;
+      }
+
+      h1 {
+        font-size: 2em;
+        margin: 0.67em 0;
+      }
+
+      hr {
+        box-sizing: content-box;
+        height: 0;
+        overflow: visible;
+      }
+
+      pre {
+        font-family: monospace, monospace;
+        font-size: 1em;
+      }
+
+      a {
+        background-color: transparent;
+      }
+
+      abbr[title] {
+        border-bottom: none;
+        text-decoration: underline;
+        text-decoration: underline dotted;
+      }
+
+      b,
+      strong {
+        font-weight: bolder;
+      }
+
+      code,
+      kbd,
+      samp {
+        font-family: monospace, monospace;
+        font-size: 1em;
+      }
+
+      small {
+        font-size: 80%;
+      }
+
+      sub,
+      sup {
+        font-size: 75%;
+        line-height: 0;
+        position: relative;
+        vertical-align: baseline;
+      }
+
+      sub {
+        bottom: -0.25em;
+      }
+
+      sup {
+        top: -0.5em;
+      }
+
+      img {
+        border-style: none;
+      }
+
+      button,
+      input,
+      optgroup,
+      select,
+      textarea {
+        font-family: inherit;
+        font-size: 100%;
+        line-height: 1.15;
+        margin: 0;
+      }
+
+      button,
+      input {
+        overflow: visible;
+      }
+
+      button,
+      select {
+        text-transform: none;
+      }
+
+      [type="button"],
+      [type="reset"],
+      [type="submit"],
+      button {
+        -webkit-appearance: button;
+      }
+
+      [type="button"]::-moz-focus-inner,
+      [type="reset"]::-moz-focus-inner,
+      [type="submit"]::-moz-focus-inner,
+      button::-moz-focus-inner {
+        border-style: none;
+        padding: 0;
+      }
+
+      [type="button"]:-moz-focusring,
+      [type="reset"]:-moz-focusring,
+      [type="submit"]:-moz-focusring,
+      button:-moz-focusring {
+        outline: 1px dotted ButtonText;
+      }
+
+      fieldset {
+        padding: 0.35em 0.75em 0.625em;
+      }
+
+      legend {
+        box-sizing: border-box;
+        color: inherit;
+        display: table;
+        max-width: 100%;
+        padding: 0;
+        white-space: normal;
+      }
+
+      progress {
+        vertical-align: baseline;
+      }
+
+      textarea {
+        overflow: auto;
+      }
+
+      [type="checkbox"],
+      [type="radio"] {
+        box-sizing: border-box;
+        padding: 0;
+      }
+
+      [type="number"]::-webkit-inner-spin-button,
+      [type="number"]::-webkit-outer-spin-button {
+        height: auto;
+      }
+
+      [type="search"] {
+        -webkit-appearance: textfield;
+        outline-offset: -2px;
+      }
+
+      [type="search"]::-webkit-search-decoration {
+        -webkit-appearance: none;
+      }
+
+      ::-webkit-file-upload-button {
+        -webkit-appearance: button;
+        font: inherit;
+      }
+
+      details {
+        display: block;
+      }
+
+      summary {
+        display: list-item;
+      }
+
+      template {
+        display: none;
+      }
+
+      [hidden] {
+        display: none;
+      }
+
+      @font-face {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 400;
+        src: local(""),
+          url(fonts/montserrat-v18-latin-regular.woff2) format("woff2"),
+          url(fonts/montserrat-v18-latin-regular.woff) format("woff");
+        font-display: swap;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: Montserrat, sans-serif;
+        font-size: 18px;
+        background-color: #444;
+        color: #f6f4f0;
+      }
+
+      .container {
+        max-width: 1250px;
+        margin: 0 auto;
+        padding: 30px 15px 50px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 70px;
+      }
+
+      p {
+        margin-top: 20px;
+      }
+
+      img {
+        height: 80px;
+        width: 80px;
+        display: block;
+        margin: 30px auto 0;
+      }
+
+      a {
+        display: block;
+        color: inherit;
+        text-decoration: underline;
+        text-align: center;
+        margin-top: 15px;
+      }
+
+      @media (max-width: 900px) {
+        body {
+          font-size: 16px;
+        }
+
+        h1 {
+          font-size: 45px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 24px;
+        }
+
+        img {
+          height: 60px;
+          width: 60px;
+        }
+      }
+    </style>
+    <script defer>
+      var a = document.querySelector("#dark-theme-icon"),
+        b = document.querySelector("#light-theme-icon");
+      function c(d) {
+        (d ? b : a).replaceWith(d ? a : b);
+      }
+      var e = window.matchMedia("(prefers-color-scheme:dark)");
+      e.addEventListener("change", function (f) {
+        c(f.matches);
+      }),
+        c(e.matches);
+    </script>
+    <title>Политика конфиденциальности</title>
+  </head>
+
+  <body>
+    <main>
+      <div class="container">
+        <h1>Политика конфиденциальности</h1>
+        <p>
+          1. Принимая условия настоящего Соглашения, пользователь даёт своё
+          согласие ЮРИДИЧЕСКОЙ КОМПАНИИ http://chargeback-law.ru (далее —
+          Компания) на сбор, хранение и обработку своих персональных данных,
+          указанных путём заполнения веб-форм на сайте http://chargeback-law.ru
+          (далее — Сайт).
+        </p>
+        <p>
+          Цель сбора персональных данных – предоставление консультаций
+          пользователю по оказываемым услугам и всем, что с ними связанно, с
+          помощью любых средств связи, а также информирование пользователя о
+          предложениях Компании.
+        </p>
+        <p>
+          Под персональными данными понимается любая информация, относящаяся к
+          прямо или косвенно определенному, или определяемому физическому лицу
+          (гражданину), включая имя, фамилию, отчество, номер телефона, адрес
+          электронной почты, местопребывание (город, страна) и другие полученные
+          от пользователя персональные данные.
+        </p>
+        <p>
+          2. Пользователь также даёт своё согласие на обработку и трансграничную
+          передачу персональных данных подрядной организации Компании для
+          отправки маркетинговых и информационных рассылок.
+        </p>
+        <p>
+          3. Основанием для обработки персональных данных являются: статья 24
+          Конституции РФ и статья 6 Федерального закона № 152-ФЗ «О персональных
+          данных» с дополнениями и изменениями.
+        </p>
+        <p>
+          4. В ходе обработки с персональными данными будут совершены следующие
+          операции: сбор, накопление, хранение, уточнение, передача,
+          блокирование, удаление, уничтожение, а также осуществление любых иных
+          действий с персональными данными в соответствии с действующим
+          законодательством — все упомянутые действия только в целях, указанных
+          в п. 1 и п. 2 настоящего Соглашения.
+        </p>
+        <p>
+          5. Компания обязуется не передавать полученную от Пользователя
+          информацию третьим лицам. Не считается нарушением предоставление
+          персональных данных третьим лицам, действующим на основании договора с
+          Компанией, для исполнения обязательств перед Пользователем и только в
+          рамках настоящего Соглашения.
+        </p>
+        <p>
+          6. Обработка данных может осуществляться как с использованием средств
+          автоматизации, так и без их использования (при неавтоматической
+          обработке). При обработке персональных данных сотрудники Компании не
+          ограничены в применении способов их обработки.
+        </p>
+        <p>
+          7. Персональные данные хранятся и обрабатываются до завершения всех
+          необходимых процедур либо до ликвидации Компании.
+        </p>
+        <p>
+          8. Согласие может быть отозвано Пользователем или его представителем
+          путём направления письменного заявления в Компанию по электронному
+          адресу vopros@chargeback-law.ru Пользователь также может отказаться от
+          получения электронных сообщений, высылаемых подрядной организацией
+          Компании, используя ссылку «Отписаться», расположенную в конце каждого
+          письма.
+        </p>
+        <p>
+          9. Пользователь принимает политику использования файлов cookies,
+          используемую на Сайте, и даёт согласие на получение информации об
+          IP-адресе и иных сведений о его активности на Сайте. Данная информация
+          не используется для установления личности Пользователя.
+        </p>
+        <p>
+          10. Компания при обработке персональных данных принимает необходимые и
+          достаточные организационные и технические меры для защиты персональных
+          данных от неправомерного доступа к ним, а также от иных неправомерных
+          действий в отношении персональных данных.
+        </p>
+        <p>
+          11. Администрация сайта имеет право вносить изменения в настоящую
+          Политику конфиденциальности. Новая редакция Политики вступает в силу с
+          момента ее размещения, если иное не предусмотрено новой редакцией
+          Политики. Действующая редакция всегда находится на странице по адресу
+          http://chargeback-law.ru/politics.html
+        </p>
+        <p>
+          12. К настоящей Политике и отношениям между Пользователем и
+          администрацией сайта, возникающим в связи с применением Политики
+          конфиденциальности, подлежит применению законодательство Российской
+          Федерации.
+        </p>
+        <p>
+          13. Все предложения или вопросы по поводу настоящей Политики следует
+          сообщать по электронной почте vopros@chargeback-law.ru
+        </p>
+        <img src="./img/icons/logo.svg" alt="" /><a
+          href="./offer.html"
+          target="_blank"
+          >Договор оферты</a
+        >
+      </div>
+    </main>
+  </body>
+</html>
